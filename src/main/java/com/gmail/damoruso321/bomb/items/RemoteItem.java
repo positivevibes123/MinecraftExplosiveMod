@@ -40,7 +40,11 @@ public class RemoteItem extends Item {
                 ItemStack stack = context.getItemInHand();
 
                 // Testing error here with data component registry object not found...
-                stack.set(ModDataComponents.REMOTE_PROPERTIES.get(), new RemoteProperties(0, 0, 0, levelName, ""));
+                if (ModDataComponents.REMOTE_PROPERTIES.isPresent()) {
+                    stack.set(ModDataComponents.REMOTE_PROPERTIES.get(), new RemoteProperties(0, 0, 0, levelName, ""));
+                } else {
+                    System.out.println("Couldn't find data component!");
+                }
             }
         }
 

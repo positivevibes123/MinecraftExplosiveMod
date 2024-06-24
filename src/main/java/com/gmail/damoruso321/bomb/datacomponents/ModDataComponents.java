@@ -2,8 +2,10 @@ package com.gmail.damoruso321.bomb.datacomponents;
 
 import com.gmail.damoruso321.bomb.MyMod;
 import com.gmail.damoruso321.bomb.items.RemoteItem;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -17,7 +19,7 @@ public class ModDataComponents {
         eventBus.register(DATA_COMPONENT_TYPES);
     }
 
-    public static final RegistryObject<DataComponentType<RemoteItem.RemoteProperties>> REMOTE_PROPERTIES = registerComponent("test",
+    public static final RegistryObject<DataComponentType<RemoteItem.RemoteProperties>> REMOTE_PROPERTIES = registerComponent("remote_properties",
             builder -> builder
                     .persistent(RemoteItem.RemoteProperties.CODEC)
                     .networkSynchronized(RemoteItem.RemoteProperties.NETWORK_CODEC)
