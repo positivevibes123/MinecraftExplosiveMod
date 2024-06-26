@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MyMod.MOD_ID);
 
-    public static final RegistryObject<Item> REMOTE = ITEMS.register("remote", () -> new RemoteItem(new Item.Properties()));
+    public static final RegistryObject<Item> REMOTE = ITEMS.register("remote", () -> new RemoteItem(new Item.Properties().component(ModDataComponents.REMOTE_PROPERTIES.get(), RemoteItem.RemoteProperties.DEFAULT)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

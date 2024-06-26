@@ -16,7 +16,7 @@ public class ModDataComponents {
     private static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, MyMod.MOD_ID);
 
     public static void register(IEventBus eventBus) {
-        eventBus.register(DATA_COMPONENT_TYPES);
+        DATA_COMPONENT_TYPES.register(eventBus);
     }
 
     public static final RegistryObject<DataComponentType<RemoteItem.RemoteProperties>> REMOTE_PROPERTIES = registerComponent("remote_properties",
