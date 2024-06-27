@@ -1,0 +1,8 @@
+{
+  "remote_sound": {
+    "subtitle": "sounds.bomb.remote_sound",
+    "sounds": [
+      "bomb:remote_sound"
+    ]
+  }
+}
