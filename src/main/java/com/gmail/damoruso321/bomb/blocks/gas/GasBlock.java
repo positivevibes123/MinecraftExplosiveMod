@@ -4,17 +4,23 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.ticks.TickPriority;
 
 public class GasBlock extends Block {
-    private static final IntegerProperty SPREAD_COUNT = IntegerProperty.create("spread_count", 0, 5);
+    private static final int MAX_SPREAD = 5;
+    private static final IntegerProperty SPREAD_COUNT = IntegerProperty.create("spread_count", 0, MAX_SPREAD);
 
     public GasBlock(Properties properties) {
         super(properties);
@@ -23,6 +29,16 @@ public class GasBlock extends Block {
                 this.stateDefinition.any()
                         .setValue(SPREAD_COUNT, 5)
         );
+    }
+
+    @Override
+    protected RenderShape getRenderShape(BlockState blockState) {
+        return RenderShape.INVISIBLE;
+    }
+
+    @Override
+    protected VoxelShape getShape(BlockState p_48760_, BlockGetter p_48761_, BlockPos p_48762_, CollisionContext p_48763_) {
+        return Shapes.empty();
     }
 
     @Override
@@ -68,7 +84,9 @@ public class GasBlock extends Block {
     private void spreadWithProbability(ServerLevel level, BlockState currentState, BlockPos blockPos, RandomSource randomSource) {
         int rand = randomSource.nextIntBetweenInclusive(0, 2);
 
-        if (rand == 0) {
+        // Check spread count b/c if we are at initial block, guarantee it expands at least once.
+        // This is to prevent gas from not expanding in tight conditions due to lower probability
+        if (rand == 0 || currentState.getValue(SPREAD_COUNT) == MAX_SPREAD) {
             if (level.getBlockState(blockPos) == Blocks.AIR.defaultBlockState()) {
                 level.setBlockAndUpdate(blockPos, this.defaultBlockState().setValue(SPREAD_COUNT, currentState.getValue(SPREAD_COUNT) - 1));
                 level.scheduleTick(blockPos, this, randomSource.nextIntBetweenInclusive(2, 5), TickPriority.HIGH);

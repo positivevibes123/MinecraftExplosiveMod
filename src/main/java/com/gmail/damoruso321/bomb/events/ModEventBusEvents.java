@@ -2,14 +2,19 @@ package com.gmail.damoruso321.bomb.events;
 
 import com.gmail.damoruso321.bomb.MyMod;
 import com.gmail.damoruso321.bomb.blockentities.ExplosiveBlockEntity;
+import com.gmail.damoruso321.bomb.particles.GasParticle;
+import com.gmail.damoruso321.bomb.particles.ModParticles;
+import net.minecraft.client.particle.SmokeParticle;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.RegisterEvent;
 
 import java.util.UUID;
 
-public class ModEvents {
+public class ModEventBusEvents {
     @Mod.EventBusSubscriber(modid = MyMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
     public class ForgeEvents {
         @SubscribeEvent
@@ -26,6 +31,15 @@ public class ModEvents {
                     System.out.println("The block placed is a modded explosive. It's UUID is: " + uuid.toString());
                 }
             }
+        }
+    }
+
+    @Mod.EventBusSubscriber(modid = MyMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    public class ModEvents {
+        @SubscribeEvent
+        public static void registerParticleProviders(final RegisterParticleProvidersEvent event) {
+            // Register particle facrtory for custom particles here...
+            //event.registerSpecial(ModParticles.GAS_PARTICLE.get(), SmokeParticle.Provider::new);
         }
     }
 }

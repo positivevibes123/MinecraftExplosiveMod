@@ -27,42 +27,6 @@ public class RemoteItem extends Item {
         super(properties);
     }
 
-    /*@Override
-    public InteractionResult useOn(UseOnContext context) {
-        Level level = context.getLevel();
-        InteractionHand hand = context.getHand();
-        Player player = context.getPlayer();
-        ItemStack stack = player.getItemInHand(hand);
-
-        if (!level.isClientSide()) {
-            System.out.println("Using the remote on a block.");
-            BlockEntity blockEntity = level.getBlockEntity(context.getClickedPos());
-
-            if (blockEntity instanceof ExplosiveBlockEntity) {
-                // Store bomb info (id, location, and dimension).
-
-                String levelInfo = level.dimensionType().toString();
-                BlockPos pos = blockEntity.getBlockPos();
-                String id = ((ExplosiveBlockEntity)blockEntity).getUUID();
-
-                //ItemStack stack = player.getItemInHand(hand);
-                stack.set(ModDataComponents.REMOTE_PROPERTIES.get(), new RemoteProperties(pos.getX(), pos.getY(), pos.getZ(), levelInfo, id));
-                System.out.println("Data saved to " + stack.getItem().getName(stack) + ":" + stack.get(ModDataComponents.REMOTE_PROPERTIES.get()));
-            } else {
-                RemoteProperties properties = stack.get(ModDataComponents.REMOTE_PROPERTIES.get());
-                System.out.println("Properties: " + properties);
-                //System.out.println(properties);
-            }
-        }
-
-        return InteractionResult.SUCCESS;
-    }*/
-
-    @Override
-    public int getDefaultMaxStackSize() {
-        return 1;
-    }
-
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);

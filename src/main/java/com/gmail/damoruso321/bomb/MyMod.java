@@ -5,6 +5,7 @@ import com.gmail.damoruso321.bomb.blocks.ModBlocks;
 import com.gmail.damoruso321.bomb.datacomponents.ModDataComponents;
 import com.gmail.damoruso321.bomb.items.ModItems;
 
+import com.gmail.damoruso321.bomb.particles.ModParticles;
 import com.gmail.damoruso321.bomb.sounds.ModSounds;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,6 +26,7 @@ public class MyMod {
         ModBlockEntities.register(modEventBus);
         ModDataComponents.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModParticles.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
