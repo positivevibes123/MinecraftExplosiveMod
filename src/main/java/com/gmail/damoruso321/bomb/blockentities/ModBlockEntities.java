@@ -12,7 +12,7 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MyMod.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<ExplosiveBlockEntity>> EXPLOSIVE_BLOCK_ENTITY = BLOCK_ENTITIES.register("explosive_block_entity",
-            () -> BlockEntityType.Builder.of(ExplosiveBlockEntity::new, ModBlocks.NUKE_BLOCK.get()).build(null));
+            () -> BlockEntityType.Builder.of(ExplosiveBlockEntity::new, ModBlocks.GAS_BOMB_BLOCK.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

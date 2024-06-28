@@ -1,4 +1,4 @@
-package com.gmail.damoruso321.bomb.blocks;
+package com.gmail.damoruso321.bomb.blocks.explosives;
 
 import com.gmail.damoruso321.bomb.blockentities.ModBlockEntities;
 import net.minecraft.core.BlockPos;

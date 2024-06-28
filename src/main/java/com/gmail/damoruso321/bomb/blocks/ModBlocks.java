@@ -1,6 +1,8 @@
 package com.gmail.damoruso321.bomb.blocks;
 
 import com.gmail.damoruso321.bomb.MyMod;
+import com.gmail.damoruso321.bomb.blocks.explosives.GasBombBlock;
+import com.gmail.damoruso321.bomb.blocks.gas.GasBlock;
 import com.gmail.damoruso321.bomb.items.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -17,7 +19,8 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MyMod.MOD_ID);
 
-    public static final RegistryObject<Block> NUKE_BLOCK = registerBlock("nuke", () -> new NukeBlock((BlockBehaviour.Properties.of().mapColor(MapColor.STONE))));
+    public static final RegistryObject<Block> GAS_BOMB_BLOCK = registerBlock("gas_bomb", () -> new GasBombBlock((BlockBehaviour.Properties.of().mapColor(MapColor.STONE))));
+    public static final RegistryObject<Block> GAS_BLOCK = registerBlock("gas_block", () -> new GasBlock((BlockBehaviour.Properties.of().mapColor(MapColor.DIRT))));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

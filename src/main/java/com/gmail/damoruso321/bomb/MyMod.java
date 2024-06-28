@@ -32,7 +32,7 @@ public class MyMod {
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            event.accept(ModBlocks.NUKE_BLOCK);
+            event.accept(ModBlocks.GAS_BOMB_BLOCK);
             event.accept(ModItems.REMOTE);
         }
     }

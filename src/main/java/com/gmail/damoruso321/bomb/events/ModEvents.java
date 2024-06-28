@@ -15,7 +15,6 @@ public class ModEvents {
         @SubscribeEvent
         public static void blockPlaced(BlockEvent.EntityPlaceEvent event) {
             if (!event.getLevel().isClientSide()) {
-                System.out.println("A block has been placed!");
                 BlockEntity blockEntity = event.getLevel().getBlockEntity(event.getPos());
 
                 // If the block placed is a modded explosive, continue.

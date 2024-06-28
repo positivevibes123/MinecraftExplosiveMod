@@ -1,7 +1,7 @@
 package com.gmail.damoruso321.bomb.items;
 
 import com.gmail.damoruso321.bomb.blockentities.ExplosiveBlockEntity;
-import com.gmail.damoruso321.bomb.blocks.ExplosiveBlock;
+import com.gmail.damoruso321.bomb.blocks.explosives.ExplosiveBlock;
 import com.gmail.damoruso321.bomb.datacomponents.ModDataComponents;
 import com.gmail.damoruso321.bomb.sounds.ModSounds;
 import com.mojang.serialization.Codec;
@@ -13,16 +13,12 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.BlockHitResult;
 
