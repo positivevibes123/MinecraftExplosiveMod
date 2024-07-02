@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "bomb:block/gas_bomb"
+    }
+  }
+}
