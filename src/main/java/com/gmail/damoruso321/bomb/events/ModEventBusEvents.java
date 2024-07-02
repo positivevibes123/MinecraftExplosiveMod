@@ -39,7 +39,7 @@ public class ModEventBusEvents {
         @SubscribeEvent
         public static void registerParticleProviders(final RegisterParticleProvidersEvent event) {
             // Register particle facrtory for custom particles here...
-            //event.registerSpecial(ModParticles.GAS_PARTICLE.get(), SmokeParticle.Provider::new);
+            event.registerSpriteSet(ModParticles.GAS_PARTICLE.get(), GasParticle.Provider::new);
         }
     }
 }
