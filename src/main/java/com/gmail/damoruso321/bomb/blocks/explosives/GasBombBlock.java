@@ -13,10 +13,11 @@ public class GasBombBlock extends ExplosiveBlock {
 
     @Override
     public void detonate(Level level, BlockPos blockPos) {
-        level.destroyBlock(blockPos, false);
+        //level.destroyBlock(blockPos, false);
 
         Block gasBlock = ModBlocks.GAS_BLOCK.get();
         level.setBlockAndUpdate(blockPos, gasBlock.defaultBlockState());
         level.scheduleTick(blockPos, gasBlock, 0);
+        level.explode(null, blockPos.getX(), blockPos.getY() + .25f, blockPos.getZ(), 1.0f, Level.ExplosionInteraction.NONE);
     }
 }
