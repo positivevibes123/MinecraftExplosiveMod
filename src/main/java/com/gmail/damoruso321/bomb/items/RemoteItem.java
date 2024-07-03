@@ -23,6 +23,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class RemoteItem extends Item {
+    private static final double MAX_USE_DISTANCE = 1500;
+
     public RemoteItem(Properties properties) {
         super(properties);
     }
@@ -53,8 +55,10 @@ public class RemoteItem extends Item {
                     BlockPos retrievedPos = new BlockPos(properties.xPos, properties.yPos, properties.zPos);
                     BlockEntity retrievedEntity = level.getBlockEntity(retrievedPos);
 
-                    // Check if we are in the same level, and if an explosive device is there
-                    if (level.dimensionType().toString().equals(properties.level) && retrievedEntity instanceof ExplosiveBlockEntity) {
+                    double distToExplosive = player.distanceToSqr(retrievedPos.getX(), retrievedPos.getY(), retrievedPos.getZ());
+
+                    // Check if we are in the same level, if an explosive device is there, and we are within range
+                    if (level.dimensionType().toString().equals(properties.level) && retrievedEntity instanceof ExplosiveBlockEntity && distToExplosive <= MAX_USE_DISTANCE) {
                         // Finally, if the UUID matches the UUID stored in the remote, we can detonate
                         if (((ExplosiveBlockEntity)retrievedEntity).getUUID().equals(properties.id)) {
                             player.sendSystemMessage(Component.literal("Detonation successful!"));
@@ -69,7 +73,7 @@ public class RemoteItem extends Item {
                     }
                 }
 
-                player.sendSystemMessage(Component.literal("Problem detonating: possibly no explosive selected?"));
+                player.sendSystemMessage(Component.literal("Problem detonating: too far away or no explosive selected?"));
             }
             // Detonate stored bomb...
         } else {
