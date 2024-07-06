@@ -62,6 +62,12 @@ public class GasBlock extends Block {
     }
 
     @Override
+    @Deprecated
+    public float getExplosionResistance() {
+        return 99999f;
+    }
+
+    @Override
     protected RenderShape getRenderShape(BlockState blockState) {
         return RenderShape.INVISIBLE;
     }
