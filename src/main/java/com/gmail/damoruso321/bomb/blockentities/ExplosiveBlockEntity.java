@@ -6,8 +6,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.UUID;
-
 public class ExplosiveBlockEntity extends BlockEntity {
     private String uuid;
     private static final String nbtKey = "UUIDkey";

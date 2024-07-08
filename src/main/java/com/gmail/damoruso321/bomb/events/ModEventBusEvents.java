@@ -4,13 +4,11 @@ import com.gmail.damoruso321.bomb.MyMod;
 import com.gmail.damoruso321.bomb.blockentities.ExplosiveBlockEntity;
 import com.gmail.damoruso321.bomb.particles.GasParticle;
 import com.gmail.damoruso321.bomb.particles.ModParticles;
-import net.minecraft.client.particle.SmokeParticle;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.RegisterEvent;
 
 import java.util.UUID;
 
