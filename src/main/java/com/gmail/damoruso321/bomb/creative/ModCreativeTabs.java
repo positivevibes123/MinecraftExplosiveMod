@@ -35,6 +35,7 @@ public class ModCreativeTabs {
         if (event.getTabKey() == MOD_TAB.getKey()) {
             event.accept(ModItems.REMOTE);
             event.accept(ModBlocks.GAS_BOMB_BLOCK);
+            event.accept(ModBlocks.CLUSTER_BOMB_BLOCK);
         }
     }
 }

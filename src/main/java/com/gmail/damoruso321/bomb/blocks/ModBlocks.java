@@ -1,6 +1,7 @@
 package com.gmail.damoruso321.bomb.blocks;
 
 import com.gmail.damoruso321.bomb.MyMod;
+import com.gmail.damoruso321.bomb.blocks.explosives.ClusterBombBlock;
 import com.gmail.damoruso321.bomb.blocks.explosives.GasBombBlock;
 import com.gmail.damoruso321.bomb.blocks.gas.GasBlock;
 import com.gmail.damoruso321.bomb.items.ModItems;
@@ -21,6 +22,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> GAS_BOMB_BLOCK = registerBlock("gas_bomb", () -> new GasBombBlock((BlockBehaviour.Properties.of().mapColor(MapColor.STONE))));
     public static final RegistryObject<Block> GAS_BLOCK = registerBlock("gas_block", () -> new GasBlock((BlockBehaviour.Properties.of().mapColor(MapColor.DIRT))));
+
+    public static final RegistryObject<Block> CLUSTER_BOMB_BLOCK = registerBlock("cluster_bomb", () -> new ClusterBombBlock((BlockBehaviour.Properties.of().mapColor(MapColor.STONE))));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
