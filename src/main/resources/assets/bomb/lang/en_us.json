@@ -1,5 +1,7 @@
 {
   "item.bomb.remote": "Remote Detonator",
 
-  "block.bomb.gas_bomb": "Gas Bomb"
+  "block.bomb.gas_bomb": "Gas Bomb",
+
+  "block.bomb.cluster_bomb": "Cluster Bomb"
 }

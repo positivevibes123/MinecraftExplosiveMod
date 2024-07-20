@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "bomb:block/clusterbomb_side",
+    "end": "minecraft:block/tnt_bottom"
+  }
+}

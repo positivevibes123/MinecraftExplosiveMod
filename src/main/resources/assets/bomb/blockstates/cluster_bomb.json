@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "bomb:block/cluster_bomb"
+    }
+  }
+}
